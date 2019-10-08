@@ -1,0 +1,89 @@
+html {
+    
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    width: 800px;
+    height: 800px;
+    border: 3px solid white;
+    background-color: #00BFFF;
+    z-index: 0; 
+    position: relative;
+}
+
+#grass {
+    width: 100%;
+    margin-top: 100px;
+    /* margin-left: -120px; */
+    height: 700px;
+    z-index: 2;
+    position: absolute;
+}
+
+#row1{
+    margin-top: 300px;
+    /* margin-left: -800px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#row2 {
+    margin-top: 100px;
+    /* margin-left: -800px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+#row3 {
+    margin-top: 100px;
+    /* margin-left: -800px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.holes {
+    
+}
+
+#hole1 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+#hole2 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+#hole3 {
+    z-index: 10;  
+}
+#hole4 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+#hole5 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+#hole6 {
+    z-index: 10;  
+}
+#hole7 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+#hole8 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+#hole9 {
+    margin-right: 70px;
+    z-index: 10;  
+}
+
+#timer {
+    text-align: right;
+}
+
