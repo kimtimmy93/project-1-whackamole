@@ -1,27 +1,25 @@
+
+$('.container').on('mousedown', () => {
+        $('.container').css('cursor', 'url(css/hammer2.png), crosshair');
+})
+$('.container').on('mouseup', () => {
+    $('.container').css('cursor', 'url(css/hammer.png), crosshair');
+})
+
+
 $('#timer').hide();
 $('#points').hide();
 $('.holes').hide();
+$('.clouds').hide();
 
- $('#start').on('click', () => {
+$('#start').on('click', () => {
     $('#timer').show();
     $('#points').show();
     $('.holes').show();
+    $('.clouds').show();
     game.setTimer();
+    game.setShowMoles();
 });
-
-
-class Whack {
-    constructor(timer, points, mole, holes, hit){
-        this.timer = timer;
-        this.points = points;
-        this.mole = mole;
-        this.holes = holes;
-        this.hit = hit;
-    }
-}
-
-
-const whackamole = new Whack()
 
 const game = {
     timer: 59,
@@ -36,17 +34,15 @@ const game = {
                 this.timer--
             }
             $timer.text(`Timer: ${this.timer}s`)
-        },1000)
+        },1000);
     },
-    setMoles(){
-        const moles = 'moles.png'
-        const interval = setInterval(() => {
-        }, Math.floor(Math.random()*(5000 - 1000 + 1)+1000))
+    setShowMoles(){
+        const $moles = $('.mole')
+        $moles.css('z-index', '4')
+        
     },
-    setRandomTime(){
 
-    },
-    setRandomHole(){
+    setRandomTime(){
 
     },
     setHit(){
@@ -54,7 +50,7 @@ const game = {
     },
     setPoints(){
         const $points = $('#points')
-        
+
     }
     
     

@@ -1,5 +1,5 @@
 html {
-    
+    background-color: aquamarine;
 }
 
 .container {
@@ -7,10 +7,42 @@ html {
     margin: auto;
     width: 800px;
     height: 800px;
-    border: 3px solid white;
+    border: 5px solid white;
     background-color: #00BFFF;
     z-index: 0; 
     position: relative;
+    cursor: url('../css/hammer.png'), crosshair;
+}
+
+@-webkit-keyframes move {
+    from {left: 0;}
+    to {left: 89%;}
+  }
+
+#cloud1 {
+    height: 100px;
+    width: 100px;
+    margin-top: 50px;
+    left: 50px;
+    position: absolute;
+    z-index: 2;
+    /* animation: move 30s linear 0s infinite; */
+}
+
+#cloud2 {
+    height: 100px;
+    width: 100px;
+    margin-top: 50px;
+    right: 50px;
+    position: absolute;
+}
+
+#cloud3 {
+    height: 100px;
+    width: 100px;
+    margin-top: 90px;
+    right: 300px;
+    position: absolute;
 }
 
 #grass {
@@ -18,72 +50,39 @@ html {
     margin-top: 100px;
     /* margin-left: -120px; */
     height: 700px;
-    z-index: 2;
+    z-index: 0;
+    position: absolute;  
+}
+
+#holemole {
+    left: 18%;
+    top: 35%;
+    height: 70%;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     position: absolute;
 }
 
-#row1{
-    margin-top: 300px;
-    /* margin-left: -800px; */
+.hole {
+    background: url('../css/hole.png');
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-#row2 {
-    margin-top: 100px;
-    /* margin-left: -800px; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center; 
-}
-#row3 {
-    margin-top: 100px;
-    /* margin-left: -800px; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.holes {
-    
-}
-
-#hole1 {
-    margin-right: 70px;
-    z-index: 10;  
-}
-#hole2 {
-    margin-right: 70px;
-    z-index: 10;  
-}
-#hole3 {
-    z-index: 10;  
-}
-#hole4 {
-    margin-right: 70px;
-    z-index: 10;  
-}
-#hole5 {
-    margin-right: 70px;
-    z-index: 10;  
-}
-#hole6 {
-    z-index: 10;  
-}
-#hole7 {
-    margin-right: 70px;
-    z-index: 10;  
-}
-#hole8 {
-    margin-right: 70px;
-    z-index: 10;  
-}
-#hole9 {
-    margin-right: 70px;
-    z-index: 10;  
+    z-index: 1;
+    background-repeat: no-repeat;
+    width: 30%;
 }
 
 #timer {
     text-align: right;
 }
+
+.mole {
+    background: url('../css/mole.png');
+    flex-wrap: wrap;
+    z-index: 10;
+    padding-right: 100px;
+}
+
+
 
