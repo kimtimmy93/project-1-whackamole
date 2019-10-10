@@ -3,8 +3,8 @@ $('#container').on('mousedown', (e) => {
         if($(e.target).attr('src') === 'images/mole.png'){
             game.points++
             console.log(game.points)
-        } else if($(e.target).attr('src') === 'images/hole.png'){
-        game.points
+        } else if($(e.target).attr('src') === 'images/hole.png' > 1){
+        game.points--
         }
     
     
@@ -17,25 +17,25 @@ $('#container').on('mouseup', () => {
     $('#container').css({'cursor': 'url(images/hammer.png), crosshair'})
 })
 
-// $('#timer').hide();
-// $('#points').hide();
-// $('.hole').hide();
+$('#timer').hide();
+$('#points').hide();
+$('.hole').hide();
 // $('.clouds').hide();
 
 $('#start').on('click', () => {
-    // $('#timer').show();
-    // $('#points').show();
-    // $('.hole').show();
+    $('#timer').show();
+    $('#points').show();
+    $('.hole').show();
     // $('.clouds').show();
     game.setTimer();
-    game.setPeepTime();
+    // game.setPeepTime();
     game.setPeepHoles();
-    game.setHit();
+    // game.setHit();
     game.setSpawnMoles();
 }); 
 
 const game = {
-    timer: 60,
+    timer: 59,
     points: 0,
     setTimer(){
         // Game timer
@@ -43,6 +43,7 @@ const game = {
         const interval = setInterval(() => {
             if(this.timer === 0) {
                 clearInterval(interval)
+                $('.hole').hide();
             }
             else {
                 this.timer--
@@ -107,18 +108,12 @@ const game = {
                             clearInterval(spawnMoles);
                     speed = Math.round(Math.random()*(1500 - 500)+ 500)
                             this.setSpawnMoles();
-                    if($('.show').length > 2) {
-                        $(holes).toggleClass('hide')
-                        $('.hide').
+                    if($('.show').length > 2) { 
+                    $(holes).hide('src', 'images/mole.png')
                         console.log('more than 2')
                     }
                 }, speed);
             }
-    },
-    setPeepTime(min, max){
-        // set a random time for moles to appear
-       return Math.round(Math.random()*(max - min)+ min);
-       
     },
     setPeepHoles(){
         let sameHole;
@@ -132,12 +127,7 @@ const game = {
             }
                 sameHole = randHole;
                 return randHole;
-    },
-    setHit(){
-        // if hammer touches mole img count it as a hit
-        
     }
-     
 }
 
     
