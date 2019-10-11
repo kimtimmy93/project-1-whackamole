@@ -23,7 +23,8 @@ $('#container').on('mouseup', () => {
 $('#timer').hide();
 $('#points').hide();
 $('.hole').hide();
-// $('.clouds').hide();
+$('#reset').hide();
+
 
 $(window).keydown(function (e) { 
     if(e.keyCode == 32) {
@@ -31,6 +32,7 @@ $(window).keydown(function (e) {
         $('#timer').show();
         $('#points').show();
         $('.hole').show();
+        $('#reset').show();
         $('#container').css('background-image', 'url(images/grass.png)');
         game.setTimer();
         game.setPeepHoles();
@@ -43,7 +45,7 @@ $(window).keydown(function (e) {
    
 
 const game = {
-    timer: 59,
+    timer: 30,
     points: 0,
     setTimer(){
         const $timer = $('#timer')
@@ -84,7 +86,7 @@ const game = {
                 let spawnMoles = setInterval(()=> {
                     this.setSpawnMoles(); 
                     clearInterval(spawnMoles)
-                }, Math.round(Math.random()*(300 - 200)+200));
+                }, Math.round(Math.random()*(300 - 100)+100));
             }  else if(this.points > 19) {
                 $('.mole').attr('src', 'images/hole.png');
                 this.setPeepHoles();

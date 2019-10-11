@@ -30,7 +30,7 @@ body {
 #timer {
     font-family: 'Indie Flower', cursive;
     font-weight: bolder;
-    font-size: 20pt;
+    font-size: 24pt;
 }
 
 #points {
@@ -76,6 +76,29 @@ img {
     border: none;
 }
 
+#reset {
+    height: 10%;
+    width: 10%;
+    right: 210px;
+    position: relative;
+    background: rgba(255, 0, 0, 0.8);
+    font-weight: bold;
+    font-size: 6pt;
+    text-transform: uppercase;
+    border: 4px solid  rgba(255, 0, 0, 0.6);
+    text-align: center;
+}
+
+#reset:hover {
+    font-size: 10pt;
+    color: #fff;
+
+}
+
+#reset:active {
+    font-size: 12pt;
+    background:#DC143C;
+}
 
 
 
