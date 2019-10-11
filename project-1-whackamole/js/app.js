@@ -20,11 +20,11 @@ $('#container').on('mouseup', () => {
     $('#container').css({'cursor': 'url(images/hammer.png), crosshair'})
 })
 
+
 $('#timer').hide();
 $('#points').hide();
 $('.hole').hide();
 $('#reset').hide();
-
 
 $(window).keydown(function (e) { 
     if(e.keyCode == 32) {
@@ -37,12 +37,8 @@ $(window).keydown(function (e) {
         game.setTimer();
         game.setPeepHoles();
         game.setSpawnMoles();
-        
-
     }
 });
-
-   
 
 const game = {
     timer: 30,
@@ -53,11 +49,13 @@ const game = {
             if(this.timer === 0) {
                 clearInterval(interval)
                 $('.hole').hide();
+                $timer.text(`TIME'S UP!`)
             }
             else {
                 this.timer--
+                $timer.text(`TIMER: ${this.timer}s`)
             }
-            $timer.text(`TIMER: ${this.timer}s`)
+            
         },1000);
     },
     setPoints(){
