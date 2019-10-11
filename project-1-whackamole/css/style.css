@@ -1,11 +1,9 @@
 
 html{
-    background-image: url('diggif.gif');
-    /* background-color: aquamarine; */ 
+    background-color: aquamarine;
 }
 
 body {
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,11 +11,12 @@ body {
     width: 100vw;
     position: fixed;
 }
+
 #container {
     height: 80%;
     width: 50%;
     border: 1px solid black;
-    background-image: url('../images/grass.png');
+    background-image: url('diggif.gif');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -26,6 +25,25 @@ body {
     justify-content: space-between;
     align-items: center;
     cursor: url("../images/hammer.png"), 60 0 crosshair;
+}
+
+#timer {
+    font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+    font-size: 20pt;
+}
+
+#points {
+    font-family: 'Indie Flower', cursive;
+    font-weight: bolder;
+    font-size: 20pt;
+}
+
+#start {
+    position: absolute;
+    z-index: 6;
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 30pt;
 }
 
 #container2 {
@@ -48,7 +66,7 @@ body {
 #holes div {
     width: 30%;
     height: 30%;
-    padding-top: 60px;
+    padding-top: 35px;
 }
 
 img {

@@ -25,15 +25,22 @@ $('#points').hide();
 $('.hole').hide();
 // $('.clouds').hide();
 
-$('#start').on('click', () => {
-    $('#timer').show();
-    $('#points').show();
-    $('.hole').show();
-    // $('.clouds').show();
-    game.setTimer();
-    game.setPeepHoles();
-    game.setSpawnMoles();
-}); 
+$(window).keydown(function (e) { 
+    if(e.keyCode == 32) {
+        $('#start').hide();
+        $('#timer').show();
+        $('#points').show();
+        $('.hole').show();
+        $('#container').css('background-image', 'url(images/grass.png)');
+        game.setTimer();
+        game.setPeepHoles();
+        game.setSpawnMoles();
+        
+
+    }
+});
+
+   
 
 const game = {
     timer: 59,
@@ -48,7 +55,7 @@ const game = {
             else {
                 this.timer--
             }
-            $timer.text(`Timer: ${this.timer}s`)
+            $timer.text(`TIMER: ${this.timer}s`)
         },1000);
     },
     setPoints(){
@@ -78,7 +85,14 @@ const game = {
                     this.setSpawnMoles(); 
                     clearInterval(spawnMoles)
                 }, Math.round(Math.random()*(300 - 200)+200));
-            }  else {
+            }  else if(this.points > 19) {
+                $('.mole').attr('src', 'images/hole.png');
+                this.setPeepHoles();
+                let spawnMoles = setInterval(()=> {
+                    this.setSpawnMoles(); 
+                    clearInterval(spawnMoles)
+                }, Math.round(Math.random()*(50 - 10)+10));
+            } else {
                 $('.mole').attr('src', 'images/hole.png');
                 this.setPeepHoles();
                 let spawnMoles = setInterval(()=> {
