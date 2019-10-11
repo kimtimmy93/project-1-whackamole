@@ -1,14 +1,17 @@
+
 $('#container').on('mousedown', (e) => {
     $('#container').css({'cursor': 'url(images/hammer2.png), crosshair'})
         if($(e.target).attr('src') === 'images/mole.png'){
             game.points++
+            const audio = new Audio('images/ouch.mp3');
+            audio.play();
             console.log(game.points)
+
         } else if($(e.target).attr('src') === 'images/hole.png' > 1){
         game.points--
         }
     
-    
-    $('#points').text(`Points: ${game.points}`)
+    $('#points').text(`POINTS: ${game.points}`)
     $(e.target).attr('src', 'images/hole.png')
     console.log(e.target)
 })
@@ -28,9 +31,7 @@ $('#start').on('click', () => {
     $('.hole').show();
     // $('.clouds').show();
     game.setTimer();
-    // game.setPeepTime();
     game.setPeepHoles();
-    // game.setHit();
     game.setSpawnMoles();
 }); 
 
@@ -38,7 +39,6 @@ const game = {
     timer: 59,
     points: 0,
     setTimer(){
-        // Game timer
         const $timer = $('#timer')
         const interval = setInterval(() => {
             if(this.timer === 0) {
@@ -55,78 +55,50 @@ const game = {
         const $points = $('#points')
         $points.text(`Points: ${this.points}`)
     },
-    // setShowMoles(){
-    //     random time for moles to peep up for
-    //    const time = this.setPeepTime(150, 900);
-    //    const holes = this.setPeepHoles();
-    //     $(holes).attr('src','images/mole.png')
-    //    setTimeout(() => {
-    //     $(holes).attr('src','images/hole.png')
-    //    },time);
-       
-    // },
     setSpawnMoles(){
-        let holes = this.setPeepHoles();
-        $(holes).attr('src', 'images/mole.png') 
         console.log($(holes).attr('src'))
-
-        let speed = Math.round(Math.random()*(1500 - 500)+ 500)
-        // let spawnMoles = setInterval(()=> {
-        //         $(holes).attr('src', 'images/hole.png');
-        //                 holes = this.setPeepHoles();
-        //         $(holes).attr('src', 'images/mole.png')
-        //                 clearInterval(spawnMoles);
-        //         speed = Math.round(Math.random()*(1500 - 500)+ 500)
-        //                 this.setSpawnMoles();
-        //     }, speed);
         if(this.points > 4 && this.points < 10) {
-                let speed = Math.round(Math.random()*(800 - 200)+ 200)
-                    let spawnMoles = setInterval(()=> {
-                        $(holes).attr('src', 'images/hole.png');
-                            holes = this.setPeepHoles();
-                        $(holes).attr('src', 'images/mole.png')
-                            clearInterval(spawnMoles);
-                        speed = Math.round(Math.random()*(800 - 200)+ 200)    
-                            this.setSpawnMoles();
-                    }, speed);
-            } else if(this.points > 9) {
-                let speed = Math.round(Math.random()*(600 - 100)+ 100)
-                    let spawnMoles = setInterval(()=> {
-                        $(holes).attr('src', 'images/hole.png');
-                            holes = this.setPeepHoles();
-                        $(holes).attr('src', 'images/mole.png')
-                            clearInterval(spawnMoles);
-                        speed = Math.round(Math.random()*(600 - 100)+ 100)
-                                this.setSpawnMoles();
-                    }, speed);
-            } else {
+            $('.mole').attr('src', 'images/hole.png');
+                        this.setPeepHoles();
                 let spawnMoles = setInterval(()=> {
-                    $(holes).attr('src', 'images/hole.png');
-                    $(holes).toggleClass('show')
-                            holes = this.setPeepHoles();
-                    $(holes).attr('src', 'images/mole.png')
-                            clearInterval(spawnMoles);
-                    speed = Math.round(Math.random()*(1500 - 500)+ 500)
-                            this.setSpawnMoles();
-                    if($('.show').length > 2) { 
-                    $(holes).hide('src', 'images/mole.png')
-                        console.log('more than 2')
-                    }
-                }, speed);
+                        this.setSpawnMoles(); 
+                        clearInterval(spawnMoles)
+                    }, Math.round(Math.random()*(1000 - 500)+500));
+            } else if(this.points > 9) {
+                $('.mole').attr('src', 'images/hole.png');
+                    this.setPeepHoles();
+                let spawnMoles = setInterval(()=> {
+                    this.setSpawnMoles(); 
+                    clearInterval(spawnMoles)
+                    }, Math.round(Math.random()*(600 - 300)+300));
+            } else if(this.points > 14) {
+                $('.mole').attr('src', 'images/hole.png');
+                this.setPeepHoles();
+                let spawnMoles = setInterval(()=> {
+                    this.setSpawnMoles(); 
+                    clearInterval(spawnMoles)
+                }, Math.round(Math.random()*(300 - 200)+200));
+            }  else {
+                $('.mole').attr('src', 'images/hole.png');
+                this.setPeepHoles();
+                let spawnMoles = setInterval(()=> {
+                    this.setSpawnMoles(); 
+                    clearInterval(spawnMoles)
+                }, Math.round(Math.random()*(1500 - 500)+500))
             }
     },
     setPeepHoles(){
-        let sameHole;
-        // set a random hole that will where mole will peep up from
         const $hole = $('.mole');
         const index = Math.floor(Math.random()*$hole.length);
         const randHole = $hole[index];
-            if(randHole === sameHole) {
+        console.log($(randHole).attr("src") === "images/mole.png")
+            if($(randHole).attr("src") === "images/mole.png") {
                 console.log('same hole')
                 return this.setPeepHoles();
+            } else {
+                $(randHole).attr("src", 'images/mole.png')
             }
-                sameHole = randHole;
-                return randHole;
+            return randHole;
     }
 }
 

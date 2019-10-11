@@ -1,8 +1,11 @@
 
 html{
-    background-color: aquamarine;
+    background-image: url('diggif.gif');
+    /* background-color: aquamarine; */ 
 }
+
 body {
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +25,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    cursor: url("../images/hammer.png"), 80 0 crosshair;
+    cursor: url("../images/hammer.png"), 60 0 crosshair;
 }
 
 #container2 {
