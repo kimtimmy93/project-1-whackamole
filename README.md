@@ -11,7 +11,7 @@
 - Javascript
 
 # Getting Started 
-[Hit the space bar to begin](https://https://kimtimmy93.github.io/project-1-whackamole)
+[Open the link to play]  (https://https://kimtimmy93.github.io/project-1-whackamole)
 
 - To start game, push the space button.
 - The timer will run as soon as the space button is pushed.
